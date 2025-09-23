@@ -1,0 +1,3 @@
+-- 코드를 입력하세요
+SELECT ANIMAL_ID, NAME -- ANIMAL_ID순으로 조회 
+FROM ANIMAL_INS 
