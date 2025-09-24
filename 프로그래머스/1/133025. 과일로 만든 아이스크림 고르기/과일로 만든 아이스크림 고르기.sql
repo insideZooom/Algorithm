@@ -1,0 +1,25 @@
+-- 상반기 총 주문량이 3000보다 높으면서
+-- 주 성분이 과일인 아이스크림 맛
+-- 총주문량이 큰 순서대로 조회
+-- TABLE 개수 똑같으면 UNION
+SELECT T1.FLAVOR
+FROM FIRST_HALF T1
+INNER JOIN ICECREAM_INFO T2 ON T1.FLAVOR = T2.FLAVOR
+WHERE T1.TOTAL_ORDER > 3000
+    AND T2.INGREDIENT_TYPE LIKE "fruit%"
+
+-- WHERE T1.TOTAL_ORDER > 3000 -- 여기 외래키  
+--     AND (SELECT *
+--          FROM ICECREAM_INFO
+--          WHERE INGREDIENT_TYPE LIKE "fruit%")
+-- ORDER BY T1.TOTAL_ORDER
+    
+    
+    -- AND (SELECT T2.*
+    --      FROM ICECREAM_INFO T2
+    --      WHERE T2.INGREDIENT_TYPE LIKE "fruit%"
+    --     )
+        -- T1.FLAVOR = T2.FLAVOR
+-- SUBQUERY?
+
+-- ICECREAM_INFO은 FIRST HALF의 FAVOR의 외래키
