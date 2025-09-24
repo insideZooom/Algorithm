@@ -1,0 +1,6 @@
+-- 코드를 작성해주세요
+SELECT COUNT(T1.ID) AS "FISH_COUNT"
+FROM FISH_INFO T1 
+WHERE T1.LENGTH IS NULL  
+-- 잡은 물고기가 10이하일때 LENGTH가 NULL, LENGTH에 NULL만 있진 않음 
+-- 10이하인 물고기 수 출력
