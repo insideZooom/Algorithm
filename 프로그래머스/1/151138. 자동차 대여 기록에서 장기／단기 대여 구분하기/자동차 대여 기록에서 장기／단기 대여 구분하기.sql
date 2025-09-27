@@ -1,0 +1,23 @@
+-- 코드를 입력하세요
+SELECT HISTORY_ID, CAR_ID, SUBSTR(START_DATE,1,10) AS START_DATE, SUBSTR(END_DATE,1,10) AS END_DATE, 
+    (
+    CASE
+        WHEN DATEDIFF(END_DATE, START_DATE) >= 29 THEN "장기 대여"
+        ELSE "단기 대여"
+    END
+     ) AS RENT_TYPE
+FROM CAR_RENTAL_COMPANY_RENTAL_HISTORY
+WHERE START_DATE LIKE "2022-09%" -- 시작일: 2022년 9월에 속하는 대여기록에 대해서 
+ORDER BY HISTORY_ID DESC 
+
+-- 날짜 비교 : DATEDIFF(END_DATE, START_DATE)
+-- SUB QUERY -> SELECT문, FROM문, WHERE문 사용 방법이 각각 어떻게?
+-- WHERE DATEDIFF(END_DATE, START_DATE) : CASE문이나 NVL2? NVL사용용
+-- SUBQUERY
+-- CASE WHEN / CASE STH WHEN
+-- WHERE 조건문이 아닌가?
+
+--    WHEN DATEDIFF(END_DATE, START_DATE) < 30 THEN "단기 대여"
+-- 대여 시작일이 2022년 9월
+-- 30일 이상 : 장기대여, 아니면 단기 대여 표시
+-- 대여 기록 id를 기준으로 내림차순
